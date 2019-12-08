@@ -9,28 +9,6 @@ const App = () => {
     const [total, setTotal] = useState(200);
 
     useEffect(() => {
-        const items = [
-            {
-                id: 1,
-                type: "Small",
-                price: 150,
-                child: 1
-            },
-            {
-                id: 2,
-                type: "Medium",
-                price: 200,
-                child: 2,
-                adult: 1
-            },
-            {
-                id: 3,
-                type: "Large",
-                price: 300,
-                child: 4,
-                adult: 2
-            }
-        ];
         const list = [
             {
                 id: 1,
@@ -65,7 +43,6 @@ const App = () => {
                 count: 0
             }
         ];
-        setItems(items);
         setCartData(list);
         setServingList(servingList);
     }, []);
@@ -118,7 +95,8 @@ const App = () => {
                 servingData[0].count += 2;
             }
         }
-
+        setCartData(cart);
+        setServingList(servingData);
         // console.log(id);
     };
     const decrementPizzaQuantity = id => {
@@ -219,6 +197,8 @@ const App = () => {
                 }
             }
         }
+        setCartData(cart);
+        setServingList(servingData);
     };
     const decrementServingQuantity = id => {
         const cart = [...cartData];
@@ -244,6 +224,8 @@ const App = () => {
                 cart[0].count -= 1;
             }
         }
+        setCartData(cart);
+        setServingList(servingData);
     };
 
     return (
